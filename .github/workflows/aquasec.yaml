@@ -47,6 +47,7 @@ jobs:
               --access-token "${{ secrets.GITHUB_TOKEN }}" \
               --aqua-key "${{ secrets.AQUA_KEY }}" \
               --aqua-secret "${{ secrets.AQUA_SECRET }}" \
+              --verbose \
 
               # The docker image name:tag of the newly built image
               --artifact-path "arunrana14/graphql-vuln:${{ github.sha }}"
