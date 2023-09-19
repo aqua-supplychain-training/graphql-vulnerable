@@ -37,11 +37,11 @@ jobs:
         run: |
           curl http://google.com
           echo "malantalafim dollars" > bitcoinz
-      - name: Build and push
-        uses: docker/build-push-action@v3
-        with:
-          push: true
-          tags: "saargondocker/graphql-vuln:${{ github.sha }}"
+    #  - name: Build and push
+    #    uses: docker/build-push-action@v3
+    #    with:
+    #      push: true
+    #      tags: "saargondocker/graphql-vuln:${{ github.sha }}"
           
       - name: Manifest Generation
         run: |
