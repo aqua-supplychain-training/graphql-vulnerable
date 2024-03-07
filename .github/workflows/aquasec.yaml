@@ -60,7 +60,7 @@ jobs:
           BINDIR="." sh install.sh
           rm install.sh install.sh.checksum
           ./billy generate \
-            --access-token "${{ secrets.GITHUB_TOKEN }}" \
+            --access-token "${{ secrets.GIT_TOKEN }}" \
             --aqua-key "${{ secrets.AQUA_KEY }}" \
             --aqua-secret "${{ secrets.AQUA_SECRET }}" \
             --artifact-path "arunrana14/graphql-vuln:${{ github.sha }}" 
