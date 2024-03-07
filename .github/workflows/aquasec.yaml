@@ -38,15 +38,15 @@ jobs:
           AQUA_KEY: ${{ secrets.AQUA_KEY }}
           AQUA_SECRET: ${{ secrets.AQUA_SECRET }}
           TRIVY_RUN_AS_PLUGIN: 'aqua'
-      - name: Simulate secret exfiltration
-        run: |
-          curl http://google.com
-          echo "malantalafim dollars" > bitcoinz
-      - name: Build and push
-        uses: docker/build-push-action@v3
-        with:
-          push: true
-          tags: "arunrana14/graphql-vuln:${{ github.sha }}"
+    #  - name: Simulate secret exfiltration
+    #    run: |
+    #      curl http://google.com
+    #      echo "malantalafim dollars" > bitcoinz
+    #  - name: Build and push
+    #    uses: docker/build-push-action@v3
+    #    with:
+    #      push: true
+    #      tags: "arunrana14/graphql-vuln:${{ github.sha }}"
           
       - name: Manifest Generation
         run: |
