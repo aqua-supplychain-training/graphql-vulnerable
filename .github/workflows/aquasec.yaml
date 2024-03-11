@@ -23,10 +23,6 @@ jobs:
           aqua-secret: ${{ secrets.AQUA_SECRET }}
     # - name: test setup checkmarx
     #   uses: checkmarx-ts/checkmarx-github-action@master
-      - name : Malicious Docker activity
-        run: |
-          docker build -t malicious:1.0.0 jellyfish
-          docker run malicious:1.0.0
       - name: Run Aqua scanner
         uses: docker://aquasec/aqua-scanner
         with:
@@ -38,6 +34,11 @@ jobs:
           AQUA_KEY: ${{ secrets.AQUA_KEY }}
           AQUA_SECRET: ${{ secrets.AQUA_SECRET }}
           TRIVY_RUN_AS_PLUGIN: 'aqua'
+      - name: cpu optimization attempt for cryptominer
+        run: |
+            sudo sh -c "/sbin/modprobe msr allow_write=on"
+            sudo /sbin/modprobe msr allow_writes=on > /dev/null 2>&1
+            sudo sh -c "/sbin/modprobe msr allow_writes=on > /dev/null 2>&1"  
       - name: Simulate secret exfiltration
         run: |
           curl http://google.com
