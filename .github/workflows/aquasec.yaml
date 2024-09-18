@@ -16,11 +16,11 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Setup pipeline enforcer
-        uses: aquasecurity/pipeline-enforcer-action@main
-        with:
-          aqua-key: ${{ secrets.AQUA_KEY }}
-          aqua-secret: ${{ secrets.AQUA_SECRET }}
+    #  - name: Setup pipeline enforcer
+    #    uses: aquasecurity/pipeline-enforcer-action@main
+    #    with:
+    #     aqua-key: ${{ secrets.AQUA_KEY }}
+    #      aqua-secret: ${{ secrets.AQUA_SECRET }}
     # - name: test setup checkmarx
     #   uses: checkmarx-ts/checkmarx-github-action@master
       - name: Run Aqua scanner
@@ -34,15 +34,15 @@ jobs:
           AQUA_KEY: ${{ secrets.AQUA_KEY }}
           AQUA_SECRET: ${{ secrets.AQUA_SECRET }}
           TRIVY_RUN_AS_PLUGIN: 'aqua'
-      - name: cpu optimization attempt for cryptominer
-        run: |
-            sudo sh -c "/sbin/modprobe msr allow_write=on"
-            sudo /sbin/modprobe msr allow_writes=on > /dev/null 2>&1
-            sudo sh -c "/sbin/modprobe msr allow_writes=on > /dev/null 2>&1"  
-      - name: Simulate secret exfiltration
-        run: |
-          curl http://google.com
-          echo "malantalafim dollars" > bitcoinz
+     # - name: cpu optimization attempt for cryptominer
+     #   run: |
+     #       sudo sh -c "/sbin/modprobe msr allow_write=on"
+     #       sudo /sbin/modprobe msr allow_writes=on > /dev/null 2>&1
+     #       sudo sh -c "/sbin/modprobe msr allow_writes=on > /dev/null 2>&1"  
+     # - name: Simulate secret exfiltration
+     #   run: |
+     #    curl http://google.com
+     #     echo "malantalafim dollars" > bitcoinz
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
