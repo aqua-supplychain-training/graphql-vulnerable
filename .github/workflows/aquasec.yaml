@@ -55,7 +55,7 @@ jobs:
             --aqua-key "${{ secrets.AQUA_KEY }}" \
             --aqua-secret "${{ secrets.AQUA_SECRET }}" \
             --cspm-url https://asia-1.api.cloudsploit.com \
-            --artifact-path "my-image-name:${{ env.tag-version }}" 
+            --artifact-path "arunrana14/graphql-vuln:${{ github.sha }}" 
 
             # The docker image name:tag of the newly built image
             # --artifact-path "my-image-name:${{ env.tag-version }}" 
