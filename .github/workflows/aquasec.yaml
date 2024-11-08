@@ -28,6 +28,8 @@ jobs:
         env:
           AQUA_KEY: ${{ secrets.AQUA_KEY }}
           AQUA_SECRET: ${{ secrets.AQUA_SECRET }}
+          TRIVY_USERNAME: ${{ secrets.TRIVY_USERNAME }}
+          TRIVY_PASSWORD: ${{ secrets.TRIVY_PASSWORD }}
           GITHUB_TOKEN: ${{ github.token }}
           AQUA_URL: https://api.asia-1.supply-chain.cloud.aquasec.com
           CSPM_URL: https://asia-1.api.cloudsploit.com
