@@ -25,4 +25,4 @@ COPY version.py /opt/dvga/
 RUN python setup.py
 
 EXPOSE 5013/tcp
-CMD ["python3", "app.py"]
+CMD ["sh", "entrypoint.sh"]
