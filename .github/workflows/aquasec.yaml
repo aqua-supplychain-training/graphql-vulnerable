@@ -20,7 +20,8 @@ jobs:
       - name: Run Aqua scanner
         uses: docker://aquasec/aqua-scanner
         with:
-          args: trivy fs --scanners misconfig,vuln,secret . --sast --db-repository=registry.aquasec.com/trivy-db:2 --checks-bundle-repository=registry.aquasec.com/trivy-checks:1 --java-db-repository=registry.aquasec.com/trivy-java-db:1
+          args: trivy fs --scanners misconfig,vuln,secret . --sast
+          # args: trivy fs --scanners misconfig,vuln,secret . --sast --db-repository=registry.aquasec.com/trivy-db:2 --checks-bundle-repository=registry.aquasec.com/trivy-checks:1 --java-db-repository=registry.aquasec.com/trivy-java-db:1
           # To customize which severities to scan for, add the following flag: --severity UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL
           # To enable SAST scanning, add: --sast
           # To enable reachability scanning, add: --reachability
